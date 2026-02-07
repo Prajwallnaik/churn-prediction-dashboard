@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments (at root level)
+.venv/
+venv/
+ENV/
+env/
+
+# Old virtual environments (legacy)
+myenv/
+src/myenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+notebooks/.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+prediction_log.json
+models/prediction_log.json
+
+# Data (optional - uncomment if you don't want to track data)
+# data/
+# *.csv
+
+# Model artifacts (optional - uncomment if models are too large)
+# models/*.pkl
+
+# Streamlit
+.streamlit/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# MLOps
+mlruns/
+.mlflow/
+
+# Legacy directories (can be removed after cleanup)
+Scripts/
+Artifacts/

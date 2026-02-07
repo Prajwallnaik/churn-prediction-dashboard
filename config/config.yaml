@@ -1,0 +1,46 @@
+# Application Configuration
+app:
+  name: "Churn Intelligence"
+  version: "1.0.0"
+  debug: false
+  
+# Paths Configuration
+paths:
+  data_dir: "data"
+  models_dir: "models"
+  notebooks_dir: "notebooks"
+  data_file: "data/customer_subscription_churn_usage_patterns.csv"
+  
+# Model Configuration
+model:
+  name: "best_classifier.pkl"
+  type: "xgboost"
+  version: "1.0"
+  
+# Training Configuration
+training:
+  test_size: 0.2
+  random_state: 42
+  cv_folds: 3
+  
+# GridSearch Parameters
+grid_search:
+  n_estimators: [100, 200, 300]
+  max_depth: [3, 4, 5]
+  learning_rate: [0.01, 0.1, 0.2]
+  subsample: [0.8, 1.0]
+  colsample_bytree: [0.8, 1.0]
+  gamma: [0, 0.1]
+  
+# Streamlit Configuration
+streamlit:
+  page_title: "Churn Intelligence"
+  page_icon: "📊"
+  layout: "wide"
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  enable_prediction_logging: true
+  log_file: "models/prediction_log.json"

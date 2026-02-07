@@ -7,11 +7,33 @@
 # Ensure Python is recognized as the primary language
 *.py linguist-language=Python
 
-# Mark configuration files appropriately
+# Configuration files
 *.yml linguist-language=YAML
 *.yaml linguist-language=YAML
-*.md linguist-documentation
-*.txt linguist-documentation
+*.env linguist-language=Shell
+.env.example linguist-language=Shell
 
 # Docker files
 Dockerfile linguist-language=Dockerfile
+.dockerignore linguist-language=Dockerfile
+
+# Documentation (exclude from language stats)
+*.md linguist-documentation
+*.txt linguist-documentation
+LICENSE linguist-documentation
+
+# Git configuration
+.gitignore linguist-language=Git Config
+.gitattributes linguist-language=Git Config
+
+# CI/CD workflows
+.github/workflows/*.yml linguist-language=YAML
+
+# Data files (exclude from language stats)
+*.csv linguist-vendored
+*.pkl linguist-vendored
+*.joblib linguist-vendored
+
+# Test files (include in Python stats)
+test_*.py linguist-language=Python
+*_test.py linguist-language=Python

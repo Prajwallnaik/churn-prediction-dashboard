@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import os
 
 # ------------------ PAGE CONFIG ------------------
 st.set_page_config(
@@ -10,7 +11,9 @@ st.set_page_config(
 )
 
 # ------------------ LOAD MODEL ------------------
-model = pickle.load(open("xgb_churn_model.pkl", "rb"))
+# Updated path to load from models directory (MLOps standard)
+model_path = os.path.join(os.path.dirname(__file__), "..", "models", "best_classifier.pkl")
+model = pickle.load(open(model_path, "rb"))
 
 # ------------------ CUSTOM CSS ------------------
 st.markdown("""

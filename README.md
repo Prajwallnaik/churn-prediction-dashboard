@@ -1,212 +1,272 @@
-# 📊 Churn Intelligence Dashboard
+# Customer Churn Prediction System
 
-AI-powered customer churn prediction system built with Streamlit and XGBoost following MLOps best practices.
+**Production-ready machine learning system for predicting customer churn using XGBoost and Streamlit**
 
-## 🚀 Features
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Framework](https://img.shields.io/badge/Framework-Streamlit-red.svg)](https://streamlit.io/)
+[![ML](https://img.shields.io/badge/ML-XGBoost-orange.svg)](https://xgboost.readthedocs.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-- **Real-time Churn Prediction**: Predict customer churn probability based on usage patterns
-- **Interactive Dashboard**: Beautiful Streamlit interface with Material Design aesthetics
-- **ML-Powered**: XGBoost classifier trained with GridSearch optimization
-- **MLOps Ready**: Structured following industry best practices
-- **CI/CD Pipeline**: Automated testing and Docker deployment
-- **Production Ready**: Containerized with comprehensive testing
+---
 
-## 📁 MLOps Project Structure
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Model Details](#model-details)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Overview
+
+End-to-end MLOps solution for customer churn prediction, featuring:
+- Interactive web application built with Streamlit
+- Production-grade ML pipeline using XGBoost
+- Automated CI/CD with GitHub Actions
+- Containerized deployment with Docker
+- Comprehensive testing suite with pytest
+
+---
+
+## Key Features
+
+| Feature | Description |
+|---------|-------------|
+| **ML Model** | XGBoost classifier with GridSearch optimization |
+| **Dashboard** | Interactive Streamlit UI for real-time predictions |
+| **MLOps** | Complete pipeline following industry best practices |
+| **Testing** | Unit, integration, and coverage tests |
+| **Docker** | Containerized for consistent deployments |
+| **Monitoring** | Structured logging and prediction tracking |
+| **Notebooks** | Jupyter notebooks for EDA and experimentation |
+
+---
+
+## Project Structure
 
 ```
-churn/
-├── .github/
-│   └── workflows/
-│       ├── docker-build-push.yml    # Docker CI/CD with testing
-│       └── render-cd.yml            # Render deployment
-├── .venv/                           # Virtual environment (gitignored)
-├── config/
-│   ├── config.yaml                  # Application configuration
-│   └── logging_config.yaml          # Logging setup
-├── data/
+churn-prediction/
+│
+├── .github/workflows/         # CI/CD pipelines
+│   ├── docker-build-push.yml  # Docker automation
+│   └── render-cd.yml          # Deployment workflow
+│
+├── config/                    # Configuration files
+│   ├── config.yaml            # App configuration
+│   └── logging_config.yaml    # Logging setup
+│
+├── data/                      # Dataset storage
 │   └── customer_subscription_churn_usage_patterns.csv
-├── logs/                            # Application logs (gitignored)
-├── models/
-│   └── best_classifier.pkl          # Trained XGBoost model
-├── notebooks/
+│
+├── logs/                      # Application logs (gitignored)
+│
+├── models/                    # Trained models
+│   └── best_classifier.pkl    # Production model
+│
+├── notebooks/                 # Jupyter notebooks
 │   └── 01_exploratory_data_analysis.ipynb
-├── src/
-│   ├── __init__.py                  # Package initialization
-│   ├── app.py                       # Streamlit application
-│   ├── data_processing.py           # Data preprocessing
-│   ├── helper_functions.py          # Utility functions
-│   ├── main.py                      # Entry point
-│   └── ml_functions.py              # ML operations
-├── tests/
+│
+├── src/                       # Source code
 │   ├── __init__.py
-│   ├── test_app.py                  # App integration tests
-│   ├── test_data_processing.py      # Data processing tests
-│   └── test_ml_functions.py         # ML function tests
-├── .env                             # Environment variables
-├── .gitignore                       # Git ignore rules
-├── Dockerfile                       # Container configuration
-├── LICENSE                          # MIT License
-├── README.md                        # This file
-└── requirements.txt                 # Python dependencies
+│   ├── app.py                 # Streamlit application
+│   ├── data_processing.py     # Data preprocessing
+│   ├── helper_functions.py    # Utilities
+│   ├── main.py                # Entry point
+│   └── ml_functions.py        # ML operations
+│
+├── tests/                     # Test suite
+│   ├── __init__.py
+│   ├── test_app.py
+│   ├── test_data_processing.py
+│   └── test_ml_functions.py
+│
+├── .env                       # Environment variables
+├── .gitignore                 # Git ignore rules
+├── Dockerfile                 # Container definition
+├── LICENSE                    # MIT License
+├── README.md                  # This file
+└── requirements.txt           # Python dependencies
 ```
 
-## 🛠️ Installation
+---
 
-### Local Setup
+## Quick Start
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd churn
-   ```
+```bash
+# Clone repository
+git clone https://github.com/Prajwallnaik/churn-prediction-dashboard.git
+cd churn
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate  # Windows
-   source .venv/bin/activate  # Linux/Mac
-   ```
+# Setup environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-4. **Run the application**
-   ```bash
-   streamlit run src/app.py
-   ```
+# Run application
+streamlit run src/app.py
+```
 
-   Or use the main entry point:
-   ```bash
-   python src/main.py
-   ```
+**Access the application**: Navigate to `http://localhost:8501`
 
-### Docker Setup
+---
 
-1. **Build the image**
-   ```bash
-   docker build -t churn-prediction .
-   ```
+## Installation
 
-2. **Run the container**
-   ```bash
-   docker run -p 8501:8501 churn-prediction
-   ```
+### Prerequisites
 
-3. **Access the app**
-   Open your browser to `http://localhost:8501`
+- Python 3.10 or higher
+- pip package manager
+- Docker (optional, for containerized deployment)
 
-## 🧪 Testing
+### Local Development
 
-Run the test suite:
+**1. Clone the Repository**
+```bash
+git clone https://github.com/Prajwallnaik/churn-prediction-dashboard.git
+cd churn
+```
+
+**2. Create Virtual Environment**
+```bash
+# Windows
+python -m venv .venv
+.venv\Scripts\activate
+
+# Linux/Mac
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**3. Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Configure Environment**
+```bash
+# Copy template and configure
+cp .env.example .env
+# Edit .env with your settings
+```
+
+### Docker Deployment
+
+**Build Image**
+```bash
+docker build -t churn-prediction:latest .
+```
+
+**Run Container**
+```bash
+docker run -p 8501:8501 churn-prediction:latest
+```
+
+---
+
+## Usage
+
+### Running the Application
+
+**Option 1: Streamlit Command**
+```bash
+streamlit run src/app.py
+```
+
+**Option 2: Python Entry Point**
+```bash
+python src/main.py
+```
+
+### Making Predictions
+
+1. **Access the Dashboard**: Navigate to `http://localhost:8501`
+2. **Input Customer Data**: Use sidebar controls to enter:
+   - Plan Type (Basic/Premium)
+   - Monthly Fee
+   - Average Weekly Usage Hours
+   - Number of Support Tickets
+   - Payment Failures Count
+   - Tenure in Months
+   - Days Since Last Login
+3. **Get Prediction**: Click "Predict Churn Risk"
+4. **Review Results**: View churn probability and risk assessment
+
+### Training New Models
+
+```python
+from src.ml_functions import train_churn_model
+
+# Train with custom parameters
+model, metrics = train_churn_model(
+    data_path="data/customer_subscription_churn_usage_patterns.csv",
+    output_path="models/best_classifier.pkl",
+    test_size=0.2,
+    random_state=42
+)
+
+print(f"Accuracy: {metrics['accuracy']:.2%}")
+print(f"Precision: {metrics['precision']:.2%}")
+print(f"Recall: {metrics['recall']:.2%}")
+```
+
+---
+
+## Model Details
+
+### Architecture
+
+- **Algorithm**: XGBoost Classifier
+- **Optimization**: GridSearchCV with 3-fold cross-validation
+- **Features**: 7 customer behavior metrics
+- **Target**: Binary classification (Churn: Yes/No)
+
+### Performance Metrics
+
+| Metric | Score |
+|--------|-------|
+| Accuracy | 85-90% |
+| Precision | High |
+| Recall | Balanced |
+| F1-Score | Optimized |
+
+### Hyperparameters
+
+Optimized through grid search:
+- Learning rate
+- Max depth
+- Number of estimators
+- Subsample ratio
+- Column sample ratio
+
+---
+
+## Development
+
+### Running Tests
 
 ```bash
 # Run all tests
 pytest tests/ -v
 
-# Run with coverage
-pytest tests/ -v --cov=src
+# Run with coverage report
+pytest tests/ --cov=src --cov-report=html
 
-# Run specific test file
+# Run specific test module
 pytest tests/test_ml_functions.py -v
+
+# Run with detailed output
+pytest tests/ -vv --tb=short
 ```
-
-## 📊 Model Training
-
-To retrain the model with new data:
-
-```python
-from src.ml_functions import train_churn_model
-
-# Train model
-model, metrics = train_churn_model(
-    data_path="data/customer_subscription_churn_usage_patterns.csv",
-    output_path="models/best_classifier.pkl"
-)
-
-print(f"Model Accuracy: {metrics['accuracy']}")
-```
-
-## 📓 Notebooks
-
-Jupyter notebooks for exploration and analysis:
-
-```bash
-# Start Jupyter
-jupyter notebook
-
-# Navigate to notebooks/
-# - 01_exploratory_data_analysis.ipynb
-```
-
-## 🔧 Configuration
-
-### Environment Variables (`.env`)
-- Model paths
-- Data paths
-- Streamlit server settings
-- Docker credentials
-- Deployment hooks
-
-### Application Config (`config/config.yaml`)
-- App settings
-- Model hyperparameters
-- Training configuration
-- Logging settings
-
-## 🚢 Deployment
-
-### CI/CD Pipeline
-
-The project includes automated workflows:
-
-1. **Testing**: Runs pytest on every push/PR
-2. **Docker Build & Push**: Builds and pushes Docker images after tests pass
-3. **Render Deployment**: Triggers deployment to Render platform
-
-Configure GitHub secrets:
-- `DOCKER_USERNAME`
-- `DOCKER_PASSWORD`
-- `RENDER_DEPLOY_HOOK`
-
-### Manual Deployment
-
-Deploy to any platform supporting Docker or Python:
-- Render
-- Heroku
-- AWS ECS
-- Google Cloud Run
-- Azure Container Instances
-
-## 📈 Usage
-
-1. **Input Customer Data**: Use the sidebar to input customer features
-   - Plan Type (Basic/Premium)
-   - Monthly Fee
-   - Weekly Usage Hours
-   - Support Tickets
-   - Payment Failures
-   - Tenure (Months)
-   - Last Login Gap (Days)
-
-2. **Predict**: Click "Predict Churn Risk" button
-
-3. **View Results**: See churn probability and risk assessment
-
-## 🧪 Model Performance
-
-The XGBoost model is optimized using GridSearch with:
-- Cross-validation (3-fold)
-- Hyperparameter tuning
-- Multiple evaluation metrics
-
-Typical performance:
-- Accuracy: ~85-90%
-- Precision: High for churn detection
-- Recall: Balanced for both classes
-
-## 🏗️ Development
 
 ### Code Quality
 
@@ -214,44 +274,183 @@ Typical performance:
 # Format code
 black src/ tests/
 
-# Lint code
+# Check linting
 flake8 src/ tests/
+
+# Type checking (if using mypy)
+mypy src/
 ```
 
-### Project Structure Philosophy
+### Jupyter Notebooks
 
-This project follows MLOps best practices:
-- **src/**: Source code as a Python package
-- **models/**: ML artifacts and trained models
-- **tests/**: Comprehensive test coverage
-- **notebooks/**: Exploratory analysis
-- **config/**: Centralized configuration
-- **logs/**: Application logging
+```bash
+# Start Jupyter Lab
+jupyter lab
 
-## 🤝 Contributing
+# Or Jupyter Notebook
+jupyter notebook
 
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests: `pytest tests/ -v`
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👨‍💻 Author
-
-Built with ❤️ using Streamlit, XGBoost, and MLOps best practices
-
-## 🙏 Acknowledgments
-
-- Streamlit for the amazing web framework
-- XGBoost for powerful ML capabilities
-- scikit-learn for preprocessing utilities
-- pytest for testing framework
+# Navigate to notebooks/ directory
+```
 
 ---
 
-© 2026 Churn Intelligence • Built with Streamlit & XGBoost • MLOps Ready
+## Deployment
+
+### CI/CD Pipeline
+
+Automated workflows configured in `.github/workflows/`:
+
+**1. Testing Workflow**
+- Triggers on push/PR
+- Runs pytest suite
+- Generates coverage reports
+
+**2. Docker Build & Push**
+- Builds Docker image
+- Pushes to Docker Hub
+- Tags with commit SHA
+
+**3. Render Deployment**
+- Triggers on main branch push
+- Deploys to Render platform
+- Zero-downtime deployment
+
+### GitHub Secrets Configuration
+
+Required secrets for CI/CD:
+```
+DOCKER_USERNAME     # Docker Hub username
+DOCKER_PASSWORD     # Docker Hub password
+RENDER_DEPLOY_HOOK  # Render deployment webhook URL
+```
+
+### Deployment Platforms
+
+Compatible with:
+- Render
+- Heroku
+- AWS ECS/Fargate
+- Google Cloud Run
+- Azure Container Instances
+- DigitalOcean App Platform
+
+---
+
+## Configuration
+
+### Environment Variables
+
+Create `.env` file with:
+```env
+# Application
+APP_NAME=Churn Intelligence
+APP_VERSION=1.0.0
+DEBUG=False
+
+# Paths
+MODEL_PATH=models/best_classifier.pkl
+DATA_PATH=data/customer_subscription_churn_usage_patterns.csv
+LOG_DIR=logs/
+
+# Streamlit
+STREAMLIT_SERVER_PORT=8501
+STREAMLIT_SERVER_ADDRESS=localhost
+
+# Logging
+LOG_LEVEL=INFO
+ENABLE_PREDICTION_LOGGING=True
+```
+
+### Application Configuration
+
+Edit `config/config.yaml`:
+```yaml
+app:
+  name: "Churn Intelligence"
+  version: "1.0.0"
+  
+model:
+  type: "XGBoost"
+  path: "models/best_classifier.pkl"
+  
+training:
+  test_size: 0.2
+  random_state: 42
+  cv_folds: 3
+```
+
+---
+
+## Contributing
+
+Contributions are welcome. Please follow these guidelines:
+
+1. **Fork the Repository**
+2. **Create Feature Branch**
+   ```bash
+   git checkout -b feature/feature-name
+   ```
+3. **Make Changes**
+   - Write clean, documented code
+   - Add tests for new features
+   - Update documentation
+4. **Run Tests**
+   ```bash
+   pytest tests/ -v
+   black src/ tests/
+   flake8 src/ tests/
+   ```
+5. **Commit Changes**
+   ```bash
+   git commit -m "Add feature description"
+   ```
+6. **Push to Branch**
+   ```bash
+   git push origin feature/feature-name
+   ```
+7. **Open Pull Request**
+
+### Code Standards
+
+- Follow PEP 8 style guide
+- Write docstrings for functions/classes
+- Maintain test coverage >80%
+- Use type hints where applicable
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Authors & Acknowledgments
+
+**Developed by**: Prajwall Naik
+
+### Built With
+
+- [Streamlit](https://streamlit.io/) - Web framework
+- [XGBoost](https://xgboost.readthedocs.io/) - ML algorithm
+- [scikit-learn](https://scikit-learn.org/) - ML utilities
+- [pytest](https://pytest.org/) - Testing framework
+- [Docker](https://www.docker.com/) - Containerization
+
+### Acknowledgments
+
+- Streamlit team for the web framework
+- XGBoost contributors for ML capabilities
+- Open-source community for tools and libraries
+
+---
+
+## Support & Contact
+
+- **Issues**: [GitHub Issues](https://github.com/Prajwallnaik/churn-prediction-dashboard/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Prajwallnaik/churn-prediction-dashboard/discussions)
+
+---
+
+**Copyright © 2026 | MLOps Implementation**

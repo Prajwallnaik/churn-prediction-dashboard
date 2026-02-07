@@ -49,6 +49,36 @@ End-to-end MLOps solution for customer churn prediction, featuring:
 
 ---
 
+## Tech Stack
+
+### Core Technologies
+| Category | Technologies |
+|----------|-------------|
+| **Language** | Python 3.10+ |
+| **ML Framework** | XGBoost, scikit-learn |
+| **Data Processing** | pandas, numpy |
+| **Web Framework** | Streamlit |
+| **Containerization** | Docker |
+
+### Development & MLOps
+| Category | Technologies |
+|----------|-------------|
+| **Testing** | pytest, pytest-cov |
+| **Code Quality** | black, flake8 |
+| **CI/CD** | GitHub Actions |
+| **Version Control** | Git, GitHub |
+| **Configuration** | YAML, python-dotenv |
+| **Notebooks** | Jupyter (EDA only) |
+
+### Deployment & Infrastructure
+| Category | Technologies |
+|----------|-------------|
+| **Container Registry** | Docker Hub |
+| **Deployment Platforms** | Render, Heroku, AWS, GCP, Azure |
+| **Logging** | Python logging module |
+
+---
+
 ## Key Features
 
 | Feature | Description |
@@ -59,7 +89,7 @@ End-to-end MLOps solution for customer churn prediction, featuring:
 | **Testing** | Unit, integration, and coverage tests |
 | **Docker** | Containerized for consistent deployments |
 | **Monitoring** | Structured logging and prediction tracking |
-| **Notebooks** | Jupyter notebooks for EDA and experimentation |
+| **Python** | Pure Python implementation with modular architecture |
 
 ---
 
@@ -84,7 +114,7 @@ churn-prediction/
 ├── models/                    # Trained models
 │   └── best_classifier.pkl    # Production model
 │
-├── notebooks/                 # Jupyter notebooks
+├── notebooks/                 # Jupyter notebooks (EDA only)
 │   └── 01_exploratory_data_analysis.ipynb
 │
 ├── src/                       # Source code
@@ -294,16 +324,18 @@ flake8 src/ tests/
 mypy src/
 ```
 
-### Jupyter Notebooks
+### Jupyter Notebooks (Optional)
+
+Notebooks are provided for exploratory data analysis only. Core functionality is implemented in Python modules.
 
 ```bash
-# Start Jupyter Lab
+# Start Jupyter Lab (optional)
 jupyter lab
 
 # Or Jupyter Notebook
 jupyter notebook
 
-# Navigate to notebooks/ directory
+# Navigate to notebooks/ directory for EDA
 ```
 
 ---

@@ -1,0 +1,17 @@
+# Linguist language overrides
+# This ensures GitHub correctly identifies the repository as Python-based
+
+# Mark notebooks as documentation (not primary code)
+*.ipynb linguist-documentation
+
+# Ensure Python is recognized as the primary language
+*.py linguist-language=Python
+
+# Mark configuration files appropriately
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+*.md linguist-documentation
+*.txt linguist-documentation
+
+# Docker files
+Dockerfile linguist-language=Dockerfile

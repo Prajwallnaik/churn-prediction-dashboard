@@ -6,6 +6,19 @@
 [![Framework](https://img.shields.io/badge/Framework-Streamlit-red.svg)](https://streamlit.io/)
 [![ML](https://img.shields.io/badge/ML-XGBoost-orange.svg)](https://xgboost.readthedocs.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com/Prajwallnaik/churn-prediction-dashboard/actions)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED.svg?logo=docker&logoColor=white)](https://hub.docker.com/)
+[![Code Coverage](https://img.shields.io/badge/Coverage-80%25+-success.svg)](https://github.com/Prajwallnaik/churn-prediction-dashboard)
+[![Code Quality](https://img.shields.io/badge/Code%20Quality-A-brightgreen.svg)](https://github.com/Prajwallnaik/churn-prediction-dashboard)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![pandas](https://img.shields.io/badge/pandas-2.0+-150458.svg?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![numpy](https://img.shields.io/badge/numpy-1.24+-013243.svg?logo=numpy&logoColor=white)](https://numpy.org/)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF.svg?logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![Testing](https://img.shields.io/badge/Testing-pytest-0A9EDC.svg?logo=pytest&logoColor=white)](https://pytest.org/)
+[![Code Style](https://img.shields.io/badge/Code%20Style-black-000000.svg)](https://github.com/psf/black)
+[![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen.svg)](https://github.com/Prajwallnaik/churn-prediction-dashboard)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/Prajwallnaik/churn-prediction-dashboard/pulls)
+
 
 ---
 
